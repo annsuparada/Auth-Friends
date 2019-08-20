@@ -9,12 +9,12 @@ import './App.css';
 function App() {
   return (
     <Router>
-    <div className="App">
-      <Link to="/login" >Login</Link>
-      <Link to="/protected">Protected Page</Link>
-      <Route path="/login" component={Login} />
-      <PrivateRoute exact path="/protected" component={FriendsList} />
-    </div>
+      <div className="App">
+        <Link to="/login" >Login</Link>
+        <Link to="/protected">Protected Page</Link>
+        <Route path="/login" component={Login} />
+        <PrivateRoute exact path="/protected" component={FriendsList} />
+      </div>
     </Router>
   );
 }

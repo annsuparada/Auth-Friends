@@ -2,13 +2,17 @@ import React from 'react';
 import axios from 'axios';
 
 class Login extends React.Component {
-    state = {
+    constructor(props){
+        super(props)
+    
+    this.state = {
         credentials: {
             username: '',
             password: ''
-        }
+        },
+        props: this.props
     };
-
+}
     handleChange = e => {
         this.setState({
           credentials: {
@@ -23,7 +27,12 @@ class Login extends React.Component {
         axios
           .post('http://localhost:5000/api/login', this.state.credentials)
           .then(res => {
-            localStorage.setItem('token', res.data.payload);
+              console.log('credentials',this.state.credentials)
+              localStorage.setItem('token', res.data.payload)
+            })
+            .then(res => {
+                
+                this.state.props.history.push('/protected')
           })
           .catch(err => console.log(err.response));
       };
@@ -40,7 +49,7 @@ class Login extends React.Component {
                     <input
                         type="password"
                         name="password"
-                        value={this.state.credentials.username}
+                        value={this.state.credentials.password}
                         onChange={this.handleChange} 
                     />
                     <button>Log in</button>
