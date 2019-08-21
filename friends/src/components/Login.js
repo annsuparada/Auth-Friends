@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import { Button, Form, Segment } from 'semantic-ui-react'
+
 class Login extends React.Component {
     constructor(props){
         super(props)
@@ -39,21 +41,30 @@ class Login extends React.Component {
     render() {
         return(
             <div>
-                <form onSubmit={this.login}>
-                    <input 
-                        type="text"
-                        name="username"
-                        value={this.state.credentials.username}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={this.state.credentials.password}
-                        onChange={this.handleChange} 
-                    />
-                    <button>Log in</button>
-                </form>
+                <Segment inverted>
+                    <Form inverted onSubmit={this.login}>
+                        
+                        <Form.Input 
+                            fluid label='First name' 
+                            placeholder='Username'
+                            type="text"
+                            name="username"
+                            value={this.state.credentials.username}
+                            onChange={this.handleChange} 
+                        />
+                        
+                        <Form.Input 
+                            fluid label='Password' 
+                            placeholder='Username'
+                            type="password"
+                            name="password"
+                            value={this.state.credentials.password}
+                            onChange={this.handleChange} 
+                        />
+                        
+                        <Button>Log in</Button>
+                    </Form>
+                </Segment>
             </div>
         )
     }

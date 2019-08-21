@@ -4,13 +4,26 @@
 
 
 .App-header {
-  background-color: #282c34;
-  
+  background-color: black;
   display: flex;
-  flex-direction: column;
+  padding: 1rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 5rem;
 }
 
+.ui.inverted.segment{
+  width: 50%;
+  margin: auto;
+}
+
+a {
+  color: white !important;
+  padding: 1rem;
+}
+
+.ui.cards{
+  padding: 3rem;
+}

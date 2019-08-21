@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 
 
-
 const FriendsForm = props => {
 
     const name = useRef(null)

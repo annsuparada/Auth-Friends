@@ -1,6 +1,7 @@
 import React from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 import FriendsForm from './FriendsForm'
+import { Card } from 'semantic-ui-react'
 
 class FriendsList extends React.Component {
     state = {
@@ -41,15 +42,20 @@ class FriendsList extends React.Component {
         return(
             <div>
                 <FriendsForm addData={this.addData} />
-                {this.state.friendsList.map(friend => {
-                    return (
-                        <div key={friend.name}>
-                            <h1>{friend.name}</h1>
-                            <h3>{friend.age}</h3>
-                            <h3>{friend.email}</h3>
-                        </div>
-                    )
-                })}
+                <Card.Group>
+                    {this.state.friendsList.map(friend => {
+                        return (
+                            
+                                <Card key={friend.name}>
+                                    <Card.Content>
+                                        <Card.Header>{friend.name}</Card.Header>
+                                        <Card.Meta>Age: {friend.age}</Card.Meta>
+                                        <Card.Description>{friend.email}</Card.Description>
+                                    </Card.Content>
+                                </Card>
+                        )
+                    })}
+                    </Card.Group>
             </div>
         )
     }
